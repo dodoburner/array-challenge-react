@@ -1,7 +1,7 @@
 import { useState } from "react";
+import Form from "./Form";
 
-const Entry = ({ el, index, updateEntry }) => {
-  const [value, setValue] = useState(el);
+const Entry = ({ el, index, updateEntry, addEntry }) => {
   const [isBoxOpen, setIsBoxOpen] = useState(false);
 
   const handleClick = () => {
@@ -9,16 +9,13 @@ const Entry = ({ el, index, updateEntry }) => {
   };
 
   const handleUpdate = (e) => {
-    setValue(e.target.value);
     updateEntry(index, e.target.value);
   };
 
   const renderBox = () => {
     if (isBoxOpen) {
       return (
-        <div className="box">
-          <input type="text" />
-        </div>
+        <Form addEntry={addEntry} index={index} setIsBoxOpen={setIsBoxOpen} />
       );
     }
 
@@ -27,8 +24,9 @@ const Entry = ({ el, index, updateEntry }) => {
 
   return (
     <li className="entry">
-      {/* {isFirst ? <div>{renderBox()}</div> : null} */}
-      <input type="text" value={value} onChange={handleUpdate} />
+      <div className="entry-content">
+        <input type="text" value={el} onChange={handleUpdate} />
+      </div>
       <div>{renderBox()}</div>
     </li>
   );
