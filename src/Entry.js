@@ -5,7 +5,7 @@ const Entry = ({ el, index, updateEntry, addEntry }) => {
   const [isBoxOpen, setIsBoxOpen] = useState(false);
 
   const handleClick = () => {
-    setIsBoxOpen((prev) => !prev);
+    setIsBoxOpen(true);
   };
 
   const handleUpdate = (e) => {

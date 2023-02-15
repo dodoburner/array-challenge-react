@@ -24,12 +24,12 @@ function App() {
   };
 
   const handleClick = () => {
-    setIsBoxOpen((prev) => !prev);
+    setIsBoxOpen(true);
   };
 
   const handleJoin = () => {
     setIsJoined((prev) => !prev);
-  }
+  };
 
   const renderBox = () => {
     if (isBoxOpen) {
