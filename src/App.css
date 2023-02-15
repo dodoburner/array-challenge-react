@@ -46,3 +46,27 @@ ul {
   width: 5px;
   cursor: col-resize;
 }
+
+.join-btn {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+  transition: 0.4s;
+}
+
+.join-btn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+.join-result {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+}

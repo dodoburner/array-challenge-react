@@ -6,6 +6,7 @@ import Form from "./Form";
 function App() {
   const [array, setArray] = useState(["a", "b", "c"]);
   const [isBoxOpen, setIsBoxOpen] = useState(false);
+  const [isJoined, setIsJoined] = useState(false);
 
   const addEntry = (index, el) => {
     setArray((prevArray) => {
@@ -26,6 +27,10 @@ function App() {
     setIsBoxOpen((prev) => !prev);
   };
 
+  const handleJoin = () => {
+    setIsJoined((prev) => !prev);
+  }
+
   const renderBox = () => {
     if (isBoxOpen) {
       return (
@@ -38,22 +43,29 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
-        <li>
-          <div>{renderBox()}</div>
-        </li>
-        {array.map((el, index) => {
-          return (
-            <Entry
-              el={el}
-              key={index}
-              index={index}
-              updateEntry={updateEntry}
-              addEntry={addEntry}
-            />
-          );
-        })}
-      </ul>
+      <div>
+        <ul>
+          <li>
+            <div>{renderBox()}</div>
+          </li>
+          {array.map((el, index) => {
+            return (
+              <Entry
+                el={el}
+                key={index}
+                index={index}
+                updateEntry={updateEntry}
+                addEntry={addEntry}
+              />
+            );
+          })}
+        </ul>
+
+        <button className="join-btn" onClick={handleJoin}>
+          {isJoined ? "UNJOIN" : "JOIN"}
+        </button>
+        <p className="join-result">{isJoined ? array.join("") : ""}</p>
+      </div>
     </div>
   );
 }
